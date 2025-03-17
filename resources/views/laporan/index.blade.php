@@ -50,9 +50,6 @@
         <div class="container-fluid">
             <div class="container">
                 <h2 class="mb-2">Laporan Pengeluaran Kas</h2>
-
-
-
                 <!-- Form Filter -->
                 <style>
                     .filter-container {
@@ -130,12 +127,11 @@
 
                 <!-- Tombol Cetak -->
                 <div class="mt-3 mb-3">
-                    <a href="{{ route('laporan.cetak.pdf', ['bulan' => request('bulan'), 'tahun' => request('tahun')]) }}"
+                    <a href="{{ route('laporan.cetak.pdf', ['bulan' => request('bulan'), 'dari_tahun' => request('dari_tahun'), 'sampai_tahun' => request('sampai_tahun')]) }}"
                         class="btn btn-danger">Cetak PDF</a>
-                    <a href="{{ route('laporan.cetak.excel', ['bulan' => request('bulan'), 'tahun' => request('tahun')]) }}"
+                    <a href="{{ route('laporan.cetak.excel', ['bulan' => request('bulan'), 'dari_tahun' => request('dari_tahun'), 'sampai_tahun' => request('sampai_tahun')]) }}"
                         class="btn btn-success">Cetak Excel</a>
                 </div>
-
 
                 <!-- Keterangan Laporan -->
                 @if (request('bulan') && request('tahun'))

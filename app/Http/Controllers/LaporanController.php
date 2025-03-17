@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Pengeluaran;
 use App\Models\SaldoAwal;
 use Carbon\Carbon;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\LaporanExport;
 use PDF; // Import pustaka DomPDF
 
 class LaporanController extends Controller
@@ -95,6 +97,13 @@ class LaporanController extends Controller
             'tahun' => $tahun,
         ]);
 
-        return $pdf->download('laporan_keuangan_' . $bulan . '_' . $tahun . '.pdf');
+        return $pdf->download('Laporan_Pengeluaran' . '_' . $bulan . '_' . $tahun . '.pdf');
     }
+
+    
+public function cetakExcel(Request $request)
+{
+    return Excel::download(new LaporanExport($request->bulan, $request->dari_tahun, $request->sampai_tahun), 'Laporan_Pengeluaran.xlsx');
+}
+    
 }
