@@ -42,7 +42,7 @@
 </head>
 
 <body>
-    <h2>Laporan Keuangan</h2>
+    <h2>Laporan Keuangan Kas</h2>
     <h3>Periode {{ date('F Y', strtotime("$tahun-$bulan-01")) }}</h3>
 
     <table>

@@ -140,7 +140,7 @@
                 <!-- Keterangan Laporan -->
                 @if (request('bulan') && request('tahun'))
                     <center>
-                        <h5>Laporan Pengeluaran dan Pemasukan</h5>
+                        <h5>Laporan Pengeluaran Kas</h5>
                         <h5> Smart City</h5>
                         <h5>Periode {{ \Carbon\Carbon::create()->month(request('bulan'))->translatedFormat('F') }}
                             {{ request('tahun') }}</h5><br>
