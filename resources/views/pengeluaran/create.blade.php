@@ -68,7 +68,7 @@
 
                     <!-- Awal Dari Input Form -->
 
-                    <form action="{{ route('pengeluaran.store') }}" method="POST">
+                    <form action="{{ route('pengeluaran.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <!-- Kode Pengeluaran (Readonly) -->
@@ -102,6 +102,12 @@
                         <div class="mb-3">
                             <label for="deskripsi" class="form-label">Deskripsi</label>
                             <textarea class="form-control" id="deskripsi" name="deskripsi" required>{{ old('deskripsi') }}</textarea>
+                        </div>
+
+                        <!-- bukti foto -->
+                        <div class="mb-3">
+                            <label for="foto" class="form-label">Foto</label>
+                            <input type="file" name="foto" accept="image/*">
                         </div>
 
                         <!-- Jumlah (Dengan Format Rupiah) -->

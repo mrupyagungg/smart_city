@@ -16,6 +16,7 @@ class Pengeluaran extends Model
         'tanggal',
         'akun_id',
         'deskripsi',
+        'foto',
         'kredit',
         'jumlah',
     ];

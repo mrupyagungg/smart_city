@@ -87,6 +87,7 @@
                                                         <th>Tanggal</th>
                                                         <th>Nama Akun</th>
                                                         <th>Deskripsi</th>
+                                                        <th>foto</th>
                                                         <th>Jumlah</th>
                                                         <th>Posisi (DB/CR)</th>
                                                         <th>Aksi</th>
@@ -98,6 +99,7 @@
                                                         <th>Tanggal</th>
                                                         <th>Nama Akun</th>
                                                         <th>Deskripsi</th>
+                                                        <th>foto</th>
                                                         <th>Jumlah</th>
                                                         <th>Posisi (DB/CR)</th>
                                                         <th>Aksi</th>
@@ -110,6 +112,14 @@
                                                             <td>{{ $a->tanggal }}</td>
                                                             <td>{{ $a->akun->nama_akun }}</td>
                                                             <td>{{ $a->deskripsi }}</td>
+                                                            <td>
+                                                                @if ($a->foto)
+                                                                    <img src="{{ asset('storage/' . $a->foto) }}"
+                                                                        width="100">
+                                                                @else
+                                                                    Tidak ada foto
+                                                                @endif
+                                                            </td>
                                                             <td>{{ number_format($a->jumlah, 2, ',', '.') }}</td>
                                                             <td>{{ $a->kredit }}</td>
 

@@ -31,14 +31,21 @@ class PengeluaranController extends Controller
             'tanggal' => 'required|date',
             'akun_id' => 'required|exists:akun,id',
             'deskripsi' => 'required|string',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'jumlah' => 'required',
         ]);
 
+        $fotoPath = null;
+        if ($request->hasFile('foto')) {
+            $fotoPath = $request->file('foto')->store('pengeluaran_foto', 'public'); // Simpan ke storage/public/pengeluaran_foto
+        }
+        
         Pengeluaran::create([
             'kode_pengeluaran' => Pengeluaran::generateKodePengeluaran(), 
             'tanggal' => $request->tanggal,
             'akun_id' => $request->akun_id,
             'deskripsi' => $request->deskripsi,
+            'foto' => $fotoPath,
             'jumlah' => str_replace(['Rp', '.', ','], '', $request->jumlah), // Pastikan hanya angka yang tersimpan
         ]);
 
